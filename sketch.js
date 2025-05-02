@@ -26,17 +26,6 @@ function draw() {
   // 顯示圖形內容在攝影機畫面的上方
   image(graphics, (width - graphics.width) / 2, (height - graphics.height) / 2);
 }
-
-function windowResized() {
-  // 當視窗大小改變時，重新調整畫布和影像大小
-  resizeCanvas(windowWidth, windowHeight);
-  capture.size(windowWidth * 0.8, windowHeight * 0.8);
-
-  // 重新調整圖形大小
-  graphics = createGraphics(capture.width, capture.height);
-  drawGraphics();
-}
-
 function drawGraphics() {
   graphics.background(0); // 設定圖形背景為黑色
   for (let y = 0; y < graphics.height; y += 20) {
@@ -47,5 +36,15 @@ function drawGraphics() {
       graphics.noStroke();
       graphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，置於單位中心
     }
+function windowResized() {
+  // 當視窗大小改變時，重新調整畫布和影像大小
+  resizeCanvas(windowWidth, windowHeight);
+  capture.size(windowWidth * 0.8, windowHeight * 0.8);
+
+  // 重新調整圖形大小
+  graphics = createGraphics(capture.width, capture.height);
+  drawGraphics();
+}
+
   }
 }
