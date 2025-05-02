@@ -4,16 +4,7 @@ let graphics;
 function setup() {
   createCanvas(windowWidth, windowHeight); // 全螢幕畫布
   background('#e0fbfc'); // 設定背景顏色
-
-  // 啟用 AudioContext，需在使用者互動後執行
-  userStartAudio();
-
-  // 擷取攝影機影像
-  capture = createCapture(VIDEO, (stream) => {
-    if (!stream.active) {
-      console.error("攝影機裝置未啟動，請檢查權限或裝置連接。");
-    }
-  });
+  capture = createCapture(VIDEO); // 擷取攝影機影像
   capture.size(windowWidth * 0.8, windowHeight * 0.8); // 設定影像大小為視窗的 80%
   capture.hide(); // 隱藏原始的 HTML 視訊元素
 
