@@ -16,14 +16,16 @@ function setup() {
 function draw() {
   background('#e0fbfc'); // 確保背景顏色一致
 
-  // 顯示圖形內容在視訊畫面的上方
-  image(graphics, (width - graphics.width) / 2, (height - graphics.height) / 2 - graphics.height);
+  // 顯示攝影機畫面，並左右顛倒
+  push(); // 儲存當前畫布狀態
+  translate(width, 0); // 將畫布的原點移到右上角
+  scale(-1, 1); // 水平翻轉畫布
+  image(capture, (width - capture.width) / 2, (height - capture.height) / 2);
+  pop(); // 恢復畫布狀態
 
-//   // 顯示視訊畫面
-//   translate(width, 0); // 將畫布的原點移到右上角
-//   scale(-1, 1); // 水平翻轉畫布
-//   image(capture, (width - capture.width) / 2, (height - capture.height) / 2);
-// }
+  // 顯示圖形內容在攝影機畫面的上方
+  image(graphics, (width - graphics.width) / 2, (height - graphics.height) / 2);
+}
 
 function windowResized() {
   // 當視窗大小改變時，重新調整畫布和影像大小
