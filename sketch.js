@@ -17,12 +17,12 @@ function draw() {
   background('#e0fbfc'); // 確保背景顏色一致
 
   // 顯示攝影機畫面，並左右顛倒
-  push(); // 儲存當前畫布狀態
-  translate(width, 0); // 將畫布的原點移到右上角
-  scale(-1, 1); // 水平翻轉畫布
-  image(capture, (width - capture.width) / 2, (height - capture.height) / 2);
-  pop(); // 恢復畫布狀態
-
+  // push(); // 儲存當前畫布狀態
+  // translate(width, 0); // 將畫布的原點移到右上角
+  // scale(-1, 1); // 水平翻轉畫布
+  // image(capture, (width - capture.width) / 2, (height - capture.height) / 2);
+  // pop(); // 恢復畫布狀態
+  drawGraphics()
   // 顯示圖形內容在攝影機畫面的上方
   image(graphics, (width - graphics.width) / 2, (height - graphics.height) / 2);
 }
